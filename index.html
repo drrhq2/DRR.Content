@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - 2nd Page</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html>
+    <head>
+     <meta charset="utf-8" />
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+      <link type="text/css" rel="stylesheet" href="stylesheet.css" />
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+      <script src="script.js" type="text/javascript"></script>
+
+    </head>
+    <body>
+      <!-- header starts -->
+    <div id="header">
+        <div id="header-content">
+            <div id="districtFilter">
+                <div id="districtFilterHeader">
+                  <label for="districtSelect"><b>Select District:</b></label>
+                </div>
+                <div id="districtFilterDropdown">
+                  <input type="text" id="districtSelect" list="districts" placeholder="Search...">
+                  <datalist id="districts">
+                  </datalist>
+                  <button id="clearButton">Clear</button>
+                  
+                </div>
+              </div>
+              <div class="text-right">
+                <a style="color:red;margin-right: 180px;" href="url">More information about EVCA</a>
+
+              </div>
+        </div>
+      
+      </div>
+      
+      <!-- header End -->
+      <div id="mainContainer">
+        <div id="infoBoxes1">
+            <div id="radarChartContainer">
+                <canvas id="radarChart" width="350" height="250"></canvas>
+                    </div>
+<div class="changeable">
+          <div class="box-size">
+            <p class="box-title"><b>Main Hazards</b></p>
+             <div class="hazard-box" id="hazardBox1"></div>
+    <div class="hazard-box" id="hazardBox2"></div>
+    <div class="hazard-box" id="hazardBox3"></div>
+            <div id="MainHazardcontent">
+            <p id="MainHazardTitle"></p>
+            <div class="icon-display" id="MainHazardIcons">
+                </div>
+              </p>
+            </div>
+          </div>
+       <div class="box-size">
+         <p class="box-title"><b>Hazard exposure</b></p>
+         <div class="hazard-exposure" id="hazardexposure1"></div>
+    <div class="hazard-exposure" id="hazardexposure2"></div>
+   <div class="hazard-exposure" id="hazardexposure3"></div>
+         <div class="hazard-exposure" id="hazardexposure4"></div>
+    <div class="hazard-exposure" id="hazardexposure5"></div>
+   <div class="hazard-exposure" id="hazardexposure6"></div>
+         <div class="hazard-exposure" id="hazardexposure7"></div>
+        <div id="hazardExposureContent">
+            <p id="hazardExposureTitle"></p>
+            <div class="icon-display" id="hazardExposureIcons">
+                <!-- Placeholder icons will be dynamically updated -->
+            </div>
+              </p>
+            </div>
+          </div>
+    </div>
+          <div class="box-size1">
+            <p class="box-title"><b>Actions and Next steps</b></p>
+            <p style="font-size:15px;" class="box-title"><b>Explaining what it is </b></p>
+            <a href="https://www.ifrcvca.org/what-is-evca">
+              <button type="button">Action Plan</button> <br>
+              <button type="button">Contingency Plan</button> <br>
+              <button type="button">Community profile</button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div id="mainContainer">
+        <div id="mapContainer">
+          <div id="viewDiv" class="mapView"></div>
+         
+         <calcite-shell-panel slot="panel-start" display-mode="float">
+            <calcite-action-bar slot="action-bar">
+              <calcite-action data-action-id="layers" icon="layers" text="Layers"></calcite-action>
+              <calcite-action data-action-id="basemaps" icon="basemap" text="Basemaps"></calcite-action>
+              <calcite-action data-action-id="legend" icon="legend" text="Legend"></calcite-action>
+              <calcite-action data-action-id="bookmarks" icon="bookmark" text="Bookmarks"></calcite-action>
+              <calcite-action data-action-id="print" icon="print" text="Print"></calcite-action>
+              <calcite-action data-action-id="information" icon="information" text="Information"></calcite-action>
+            </calcite-action-bar>
+            <!-- Map-specific panels (each one provides a div for ArcGIS Maps SDK for JavaScript widgets) -->
+            <calcite-panel heading="Layers" height-scale="l" data-panel-id="layers" hidden>
+              <div id="layers-container"></div>
+            </calcite-panel>
+            <calcite-panel heading="Basemaps" height-scale="l" data-panel-id="basemaps" hidden>
+              <div id="basemaps-container"></div>
+            </calcite-panel>
+            <calcite-panel heading="Legend" height-scale="l" data-panel-id="legend" hidden>
+              <div id="legend-container"></div>
+            </calcite-panel>
+            <calcite-panel heading="Bookmarks" height-scale="l" data-panel-id="bookmarks" hidden>
+              <div id="bookmarks-container"></div>
+            </calcite-panel>
+            <calcite-panel heading="Print" height-scale="l" data-panel-id="print" hidden>
+              <div id="print-container"></div>
+            </calcite-panel>
+           </calcite-shell-panel> 
+        </div>
+        <div id="infoBoxes">
+          <div class="box-size">
+            <p class="box-title"><b>Resilience Dimension</b></p>
+            <div id="info-links">
+           <calcite-action data-action-id="Risk management" text="Risk management" icon="basemap" text-enabled></calcite-action>
+              <calcite-action data-action-id="Health" text="Health" text-enabled></calcite-action>
+              <calcite-action data-action-id="Shelter" text="Shelter" text-enabled></calcite-action>
+              <calcite-action data-action-id="Food and nutrition security" text="Food and nutrition security" text-enabled></calcite-action>
+              <calcite-action data-action-id="Social cohesion" text="Social cohesion" text-enabled></calcite-action>
+              <calcite-action data-action-id="Inclusion" text="Inclusion" text-enabled></calcite-action>
+              <calcite-action data-action-id="Economic opportunities" text="Economic opportunities" text-enabled></calcite-action>
+              <calcite-action data-action-id="Infrastructure & structure" text="Infrastructure & structure" text-enabled></calcite-action>
+              <calcite-action data-action-id="Natural Resource management" text="Natural Resource management" text-enabled></calcite-action>
+              <calcite-action data-action-id="Connections" text="Connections" text-enabled></calcite-action>
+            </div>
+          </div>
+    
+          <div class="box-size">
+            <p class="box-title1"><b>Vulnerability</b></p>
+            <div id="box1">
+              <p id="hazardTitle1">summary of vulnerability context Information per resilience dimension</p>
+              <div id="box1Content"></div> <!-- Updated content container -->
+            </div>
+          </div>
+          <div class="box-size">
+            <p class="box-title2"><b>Capacity</b></p>
+            <div id="box2">
+              <p id="durationTitle2">Summary of capacity context information per resilience dimension: </p>
+              <div id="box2Content"></div> <!-- Updated content container -->
+          </div>
+    </div>
+          <div id="para">
+            <p class="box-title"><b>Dimension to prioritize</b></p>
+            <div class="icon-display">
+              <a href="#">❤️ Health</a> <br>
+              <a href="#">🏠 Shelter</a> <br>
+              <a href="#">💸 Economic opportunities </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </body>
+    
+    </html>
+     <script src="https://js.arcgis.com/calcite-components/1.8.0/calcite.esm.js" type="module"></script>
+        <link rel="stylesheet" href="https://js.arcgis.com/calcite-components/1.8.0/calcite.css" />
+        <script src="https://js.arcgis.com/4.27/"></script>
+    
+        <link disabled id="arcgis-maps-sdk-theme-dark" rel="stylesheet" href="https://js.arcgis.com/4.27/esri/themes/dark/main.css" />
+    
+        <link id="arcgis-maps-sdk-theme-light" rel="stylesheet" href="https://js.arcgis.com/4.27/esri/themes/light/main.css" />
+    
+    
+    <script>
+      
+      // Define 'i' to access a specific view (replace 0 with the appropriate index)
+        const i = 0;
+    
+       
+      // Placeholder function for updating vulnerability and capacity
+      function updateVulnerabilityAndCapacity(dimensionTitle) {
+        // fina to can replace this function Bi actual logic
+        console.log(`Clicked on Resilience Dimension: ${dimensionTitle}`);
+        // Hala2 Update the vulnerability and capacity boxes hon
+      }
+    
+      require([
+        "esri/WebMap",
+        "esri/views/MapView",
+        "esri/widgets/Bookmarks",
+        "esri/widgets/BasemapGallery",
+        "esri/widgets/LayerList",
+        "esri/widgets/Legend",
+        "esri/widgets/Print",
+        "esri/layers/FeatureLayer"
+      ], function(WebMap, MapView, Bookmarks, BasemapGallery, LayerList, Legend, Print, FeatureLayer) {
+        const webmapId = ["5f9309a2a54043c6b454a4f92e4c53ab"];
+        const viewDivs = ["viewDiv"];
+        const views = [];
+    
+        const map = new WebMap({
+          portalItem: {
+            id: webmapId
+          }
+        });
+    
+        const view = new MapView({
+          map,
+          container: "viewDiv",
+          padding: {
+            left: 49
+          }
+        });
+    
+        view.ui.move("zoom", "bottom-right");
+        views.push(view);
+    
+        views.forEach(function(view) {
+          view.on("pointer-drag", function() {
+            synchronizeViews(view);
+          });
+    
+          view.watch("zoom", function() {
+            synchronizeViews(view);
+          });
+        });
+    
+        function synchronizeViews(currentView) {
+          views.forEach(function(view) {
+            if (view !== currentView) {
+              view.extent = currentView.extent;
+            }
+          });
+        }
+    
+        //Zid Feature Layer lal Districts
+        const districtLayer = new FeatureLayer({
+          url: "https://services7.arcgis.com/WOCTeelWa8YfhXRF/arcgis/rest/services/Districts/FeatureServer/0",
+          title: "Districts",
+          visible: true,
+          outFields: ["*"]
+        });
+    
+        map.add(districtLayer);
+    
+        map.when(() => {
+          const {
+            title,
+            description,
+            thumbnailUrl,
+            avgRating
+          } = map.portalItem;
+          const headerTitle = document.querySelector(`#${viewDivs[i]}-header-title`);
+          const itemDescription = document.querySelector(`#${viewDivs[i]}-item-description`);
+          const itemThumbnail = document.querySelector(`#${viewDivs[i]}-item-thumbnail`);
+          const itemRating = document.querySelector(`#${viewDivs[i]}-item-rating`);
+    
+          if (headerTitle) headerTitle.textContent = title;
+          if (itemDescription) itemDescription.innerHTML = description;
+          if (itemThumbnail) itemThumbnail.src = thumbnailUrl;
+          if (itemRating) itemRating.value = avgRating;
+        });
+    
+        // Create a single filter element for all maps
+        const districtSelect = document.getElementById("districtSelect");
+    
+        function updateFilter(value) {
+          views.forEach((view) => {
+            const layer = view.map.layers.find((l) => l.title === "Districts");
+            if (layer) {
+              if (value === "Select All" || value === "") {
+                layer.definitionExpression = "";
+              } else {
+                layer.definitionExpression = `GOV = '${value}'`;
+              }
+            }
+          });
+        }
+    
+        fetch("https://services7.arcgis.com/WOCTeelWa8YfhXRF/arcgis/rest/services/Districts/FeatureServer/0/query?where=1%3D1&outFields=GOV&returnDistinctValues=true&f=json")
+          .then((response) => response.json())
+          .then(({ features }) => {
+            const districtsDatalist = document.getElementById("districts");
+            const govValues = [];
+    
+            features.forEach(({ attributes }) => {
+              const govValue = attributes.GOV;
+              if (govValue && !govValues.includes(govValue)) {
+                govValues.push(govValue);
+              }
+            });
+    
+            govValues.forEach((govValue) => {
+              const option = document.createElement("option");
+              option.value = govValue;
+              districtsDatalist.appendChild(option);
+            });
+    
+            const districtSelect = document.getElementById("districtSelect");
+            districtSelect.setAttribute("list", "districts");
+    
+            districtSelect.addEventListener("input", (e) => {
+              updateFilter(e.target.value);
+            });
+    
+            function resetDropdownOnSearch() {
+              districtSelect.value = "";
+              updateFilter("");
+            }
+    
+            districtSelect.addEventListener("focus", () => {
+              resetDropdownOnSearch();
+            });
+    
+            function resetDropdown() {
+              districtSelect.value = "";
+              updateFilter("");
+            }
+    
+            const clearButton = document.getElementById("clearButton");
+            clearButton.addEventListener("click", () => {
+              resetDropdown();
+            });
+          });
+    
+    
+        const basemaps = new BasemapGallery({
+          view,
+          container: "basemaps-container"
+        });
+    
+        const bookmarks = new Bookmarks({
+          view,
+          container: "bookmarks-container"
+        });
+    
+        const layerList = new LayerList({
+          view,
+          selectionEnabled: true,
+          container: "layers-container"
+        });
+    
+        const legend = new Legend({
+          view,
+          container: "legend-container"
+        });
+    
+        const print = new Print({
+          view,
+          container: "print-container"
+        });
+    
+        let activeWidget;
+    
+        const handleActionBarClick = ({
+          target
+        }) => {
+          if (target.tagName !== "CALCITE-ACTION") {
+            return;
+          }
+    
+          if (activeWidget) {
+            document.querySelector(`[data-action-id=${activeWidget}]`).active = false;
+            document.querySelector(`[data-panel-id=${activeWidget}]`).hidden = true;
+          }
+    
+          const nextWidget = target.dataset.actionId;
+          if (nextWidget !== activeWidget) {
+            document.querySelector(`[data-action-id=${nextWidget}]`).active = true;
+            document.querySelector(`[data-panel-id=${nextWidget}]`).hidden = false;
+            activeWidget = nextWidget;
+          } else {
+            activeWidget = null;
+          }
+        };
+    
+        document.querySelector("calcite-action-bar").addEventListener("click", handleActionBarClick);
+    
+        let actionBarExpanded = false;
+    
+        document.addEventListener("calciteActionBarToggle", event => {
+          actionBarExpanded = !actionBarExpanded;
+          view.padding = {
+            left: actionBarExpanded ? 150 : 49
+          };
+        });
+    
+        document.querySelector("calcite-shell").hidden = false;
+        document.querySelector("calcite-loader").hidden = true;
+      });
+      
+      fetch("https://services7.arcgis.com/WOCTeelWa8YfhXRF/arcgis/rest/services/Hazards_and_Exposure/FeatureServer/2/query?where=1%3D1&outFields=hazard_event&returnDistinctValues=true&f=json")
+        .then((response) => response.json())
+        .then(({ features }) => {
+          const hazardsDropdown = document.getElementById("hazardSelect");
+          const hazardValues = [];
+    
+          features.forEach(({ attributes }) => {
+            const hazardValue = attributes.hazard_event;
+            if (hazardValue && !hazardValues.includes(hazardValue)) {
+              hazardValues.push(hazardValue);
+            }
+          });
+    
+          ////////////////
+            // Select all calcite-action elements
+            const calciteActions = document.querySelectorAll('calcite-action');
+    
+            // Add a click event listener to each calcite-action element
+            calciteActions.forEach((action) => {
+                action.addEventListener('click', () => {
+                    const dataActionId = action.getAttribute('data-action-id');
+                    console.log(`Selected Value: ${dataActionId}`);
+                    updateVulnerabilityAndCapacity(dataActionId);
+                });
+            });
+      
+    
+         const headerTitle = document.querySelector(`#${viewDivs[i]}-header-title`);
+         views.forEach((view) => {
+    
+            const hazardsLayer = new FeatureLayer({
+              url: "https://services7.arcgis.com/WOCTeelWa8YfhXRF/arcgis/rest/services/Hazards_and_Exposure/FeatureServer/2",
+              title: "Hazards",
+              visible: true,
+              outFields: ["*"]
+            });
+    
+            view.map.add(hazardsLayer);
+          });
+        });
+      
+        const calciteShell = document.querySelector("calcite-shell");
+        if (calciteShell) {
+          calciteShell.hidden = false;
+        }
+    
+           
+    
+    
+    
+      // Define a variable to keep track of the currently selected dimension
+      let selectedDimension = null;
+    
+      function updateVulnerabilityAndCapacity(dimensionTitle) {
+        const vulnerabilityContent = document.getElementById("durationTitle2");
+        const capacityContent = document.getElementById("hazardTitle1");
+        // Check if the clicked dimension is the same as the currently selected dimension
+        if (dimensionTitle === selectedDimension) {
+          // If it's the same dimension, clear the content and reset the selected dimension
+          vulnerabilityContent.textContent = "";
+          capacityContent.textContent = "";
+          selectedDimension = null;
+          document.getElementById("durationTitle2").textContent = "Select a Resilience Dimension";
+          document.getElementById("hazardTitle1").textContent = "Select a Resilience Dimension";
+        } else {
+          // If it's a different dimension, update the content and set the selected dimension
+          selectedDimension = dimensionTitle;
+    
+          // Replace these with your actual vulnerability and capacity content for each dimension
+          
+          switch (dimensionTitle) {
+            case "Risk management":
+              
+              vulnerabilityContent.textContent = "Risk management vulnerability content goes here.";
+              capacityContent.textContent = "Risk management capacity content goes here.";
+              break;
+            case "Health":
+              vulnerabilityContent.textContent = "Health vulnerability content goes here.";
+              capacityContent.textContent = "Health capacity content goes here.";
+              break;
+            case "Shelter":
+              vulnerabilityContent.textContent = "Shelter vulnerability content goes here.";
+              capacityContent.textContent = "Shelter capacity content goes here.";
+              break;
+            case "Food and nutrition security":
+              vulnerabilityContent.textContent = "Food and nutrition security vulnerability content goes here.";
+              capacityContent.textContent = "Food and nutrition security capacity content goes here.";
+              break;
+            case "Social cohesion":
+              vulnerabilityContent.textContent = "Social cohesion vulnerability content goes here.";
+              capacityContent.textContent = "Social cohesion capacity content goes here.";
+              break;
+            case "Inclusion":
+              vulnerabilityContent.textContent = "Inclusion vulnerability content goes here.";
+              capacityContent.textContent = "Inclusion capacity content goes here.";
+              break;
+            case "Economic opportunities":
+              vulnerabilityContent.textContent = "Economic opportunities vulnerability content goes here.";
+              capacityContent.textContent = "Economic opportunities capacity content goes here.";
+              break;
+            case "Infrastructure & structure":
+              vulnerabilityContent.textContent = "Infrastructure & structure vulnerability content goes here.";
+              capacityContent.textContent = "Infrastructure & structure capacity content goes here.";
+              break;
+            case "Natural Resource management":
+              vulnerabilityContent.textContent = "Natural Resource management vulnerability content goes here.";
+              capacityContent.textContent = "Natural Resource management capacity content goes here.";
+              break;
+            case "Connections":
+              vulnerabilityContent.textContent = "Connections vulnerability content goes here.";
+              capacityContent.textContent = "Connections capacity content goes here.";
+              break;
+            default:
+              vulnerabilityContent.textContent = "Select a Resilience Dimension";
+              capacityContent.textContent = "Select a Resilience Dimension";
+              break;
+          }
+           // Update the titles of the boxes
+       //   document.getElementById("box1-title").textContent = `Vulnerability for ${dimensionTitle}`;
+       //   document.getElementById("box2-title").textContent = `Capacity for ${dimensionTitle}`;
+        }
+      }
+     
+      
+    </script>
+    </html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
